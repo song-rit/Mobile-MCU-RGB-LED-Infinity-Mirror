@@ -2,7 +2,7 @@
 
 UI : Modify from Farbtastic Color Picker
 
-Server : NodeMCU and Lua language 
+Server : NodeMCU by Lua language 
 
 ![Alt text](https://github.com/song-rit/Mobile-MCU-RGB-LED-Infinity-Mirror/blob/master/pic/1.jpg)
 
