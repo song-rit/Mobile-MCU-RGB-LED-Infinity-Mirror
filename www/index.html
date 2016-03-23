@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+ <title>Farbtastic</title>
+ <script type="text/javascript" src="jquery-1.1.2.js"></script>
+ <script type="text/javascript" src="farbtastic.js"></script>
+ <link rel="stylesheet" href="farbtastic.css" type="text/css" />
+ <link rel="stylesheet" type="text/css" href="style.css">
+ <link rel="stylesheet" type="text/css" href="switch.css">
+ <link rel="stylesheet" type="text/css" href="button.css">
+ <meta name="viewport" content="width=device-width, initial-scale=1" />
+ <meta http-equiv="ScreenOrientation" content="autoRotate:disable"> 
+</body>
+</html>
+
+ <script type="text/javascript" charset="utf-8">
+ localStorage.setItem("url", "http://192.168.4.1/");
+  $(document).ready(function() {
+    $('#demo').hide();
+    $('#picker').farbtastic('#color');
+  
+	//Check when click swtich
+	//Send Status to NodeMCU
+   	$("#box").click(function(){
+	    if($('#box').attr('checked')) {
+	      $.ajax({url: "http://192.168.4.1/" + "on"});
+	    } else {
+	      $.ajax({url: "http://192.168.4.1/" + "off"});
+	    }     
+  	})
+  });
+
+  //Check when click button 
+  //Send function to NodeMCU
+  function send(data){
+  	  $('#box').attr('checked', true)
+   		$.ajax({url: "http://192.168.4.1/" + data});  
+  	}
+
+ </script>
+
+
+</head>
+<body>
+
+<div align="center" style="border:0px solid red; margin-top: 8%;">
+<p id="picker"></p>
+</div>
+
+<div>	
+	<div class="switch">
+	  <input type="checkbox" name="toggle" id="box" checked="true">
+	  <label for="toggle"><i></i></label>
+	  <span></span> 
+	</div>
+</div >
+
+<div align="center"  style="margin-top: 40px;" >
+	<a onclick="send('flash')" style="width:100px;" class="button black bigrounded medium">flash</a> 
+	<a onclick="send('dimmer')"  style="width:100px; text-align: center; " class="button black bigrounded medium">dimmer</a> 
+</div>
+
+<div align="center"  style="margin: 15px;  margin-bottom: 20px;" >
+	<a onclick="send('smooth')"  style="width:100px;" class="button black bigrounded medium">smooth</a> 
+	<a onclick="send('wave')"  style="width:100px;" class="button black bigrounded medium">wave</a> 
+</div>
+</body>
+</html>
+
