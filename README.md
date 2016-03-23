@@ -1,6 +1,6 @@
 # Mobile-MCU-RGB-LED-Infinity-Mirror
 
-UI : Modify from Farbtastic Color Picker
+UI : Modify from Farbtastic Color Picker, JQeury, CSS
 
 Server : NodeMCU by Lua language 
 
